@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДеревьЯ - Посади лес, в который можно вернуться</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">ДеревьЯ</div>
+            <ul class="nav-menu">
+                <li><a href="#companies">Для компаний</a></li>
+                <li><a href="#stories">Истории</a></li>
+                <li><a href="#grove">Роща славы</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <!-- Фон с видео/фото реальных посадок -->
+            <img src="images/hero.jpg" alt="Посадка леса">
+        </div>
+        <div class="hero-content">
+            <h1>Покупай саженцы — сажай лес. Лес, в который можно вернуться</h1>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToSection('participation')">Выбрать город и посадку</button>
+                <button class="btn-secondary" onclick="scrollToSection('companies')">Для компаний</button>
+                <button class="btn-secondary" onclick="scrollToSection('grove')">Роща славы</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Participation Section -->
+    <section id="participation" class="participation">
+        <div class="container">
+            <h2>Выберите город и формат участия</h2>
+            
+            <!-- Выбор города -->
+            <div class="city-selector">
+                <label for="city">Ваш город:</label>
+                <select id="city" name="city">
+                    <option value="">Выберите город</option>
+                    <option value="moscow">Москва</option>
+                    <option value="spb">Санкт-Петербург</option>
+                    <option value="ekb">Екатеринбург</option>
+                    <option value="nsk">Новосибирск</option>
+                    <option value="kazan">Казань</option>
+                    <option value="vladivostok">Владивосток</option>
+                </select>
+            </div>
+
+            <!-- Форматы участия -->
+            <div class="participation-formats">
+                <!-- Частные лица -->
+                <div class="format-section">
+                    <h3>Частные лица</h3>
+                    <div class="sapling-calculator">
+                        <div class="calculator-header">
+                            <label for="saplings">Количество саженцев:</label>
+                            <span id="sapling-count">10</span> шт.
+                        </div>
+                        <input type="range" id="saplings" name="saplings" min="1" max="100" value="10" step="1" style="width: 100%;">
+                        <div class="calculator-result">
+                            Сумма: <span id="amount">10 000</span> ₽
+                        </div>
+                        <button class="btn-primary">Участвовать в посадке</button>
+                    </div>
+                </div>
+
+                <!-- Ритуалы и традиции -->
+                <div class="rituals-section">
+                    <h3>Ритуалы и традиции</h3>
+                    <div class="rituals-grid">
+                        <!-- Посвящение в мужчины -->
+                        <div class="ritual-card">
+                            <h4>Посвящение в мужчины</h4>
+                            <p>5 000 ₽ — вклад в лес и в характер ребёнка</p>
+                            <button class="btn-outline" onclick="scrollToSection('men-ritual')">Записаться на посвящение</button>
+                        </div>
+
+                        <!-- Свадебное дерево -->
+                        <div class="ritual-card">
+                            <h4>Свадебное дерево</h4>
+                            <p>5 000 ₽ — ваша традиция, ваш лес, ваш след</p>
+                            <button class="btn-outline" onclick="scrollToSection('wedding-tree')">Посадить семейное дерево</button>
+
+                        </div>
+
+                        <!-- Роща славы -->
+                        <div class="ritual-card">
+                            <h4>Роща славы</h4>
+                            <p>Посадите дерево в память о защитнике</p>
+                            <button class="btn-outline" onclick="scrollToSection('grove')">Посадить дерево в Роще славы</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Companies Section -->
+    <section  id="companies" class="companies">
+        <div class="container">
+            <h2>Шефство над лесом для компаний</h2>
+            <div class="company-tiers">
+                <div class="tier">
+                    <h3>1 гектар</h3>
+                    <div class="price">от 50 000 ₽/год</div>
+                    <ul class="benefits">
+                        <li>Сертификат/отличительный знак в офис</li>
+                        <li>Статус «шеф-гектара»</li>
+                        <li>Ежегодные отчёты о посадках</li>
+                        <li>Возможность расширять участие</li>
+                    </ul>
+                    <button class="btn-primary" onclick="openCompanyForm(1)">Оставить заявку от компании</button>
+                </div>
+
+                <div class="tier popular">
+                    <h3>10 гектаров</h3>
+                    <div class="price">от 450 000 ₽/год</div>
+                    <ul class="benefits">
+                        <li>Всё из пакета 1 гектар</li>
+                        <li>Упоминание на сайте как партнёра</li>
+                        <li>Фото и видео отчёты с квадрокоптера</li>
+                        <li>Корпоративные дни посадок</li>
+                        <li>Приоритетное расширение площади</li>
+                    </ul>
+                    <button class="btn-primary" onclick="openCompanyForm(10)">Оставить заявку от компании</button>
+                </div>
+
+                <div class="tier">
+                    <h3>100 гектаров</h3>
+                    <div class="price">от 4 000 000 ₽/год</div>
+                    <ul class="benefits">
+                        <li>Всё из пакета 10 гектаров</li>
+                        <li>Именная табличка в лесу</li>
+                        <li>PR-поддержка и медиа-упоминания</li>
+                        <li>Эксклюзивные отчёты и аналитика</li>
+                        <li>Возможность «удваивать гектар» ежегодно</li>
+                    </ul>
+                    <button class="btn-primary" onclick="openCompanyForm(1)">Оставить заявку от компании</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stories Section -->
+    <section id="stories" class="stories">
+        <div class="container">
+            <h2>Истории посадок</h2>
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="images/story1.jpg" alt="Посадка в Подмосковье">
+                    </div>
+                    <div class="story-content">
+                        <h3>Семья Петровых: наша первая посадка</h3>
+                        <p>"Мы посадили 20 деревьев вместе с детьми. Теперь каждые выходные ездим проведать наш лес!"</p>
+                        <span class="story-date">15 мая 2025</span>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="images/story2.jpg" alt="Корпоративная посадка">
+                    </div>
+                    <div class="story-content">
+                        <h3>Компания "Рога и копыта": 5 гектаров нового леса</h3>
+                        <p>"Наш коллектив посадил 5000 деревьев. Это лучший тимбилдинг за всю историю компании!"</p>
+                        <span class="story-date">22 апреля 2025</span>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="images/story3.webp" alt="Свадебное дерево">
+                    </div>
+                    <div class="story-content">
+                        <h3>Анна и Максим: дерево вместо букета</h3>
+                        <p>"В день свадьбы посадили своё дерево. Теперь у нас есть живой символ нашей семьи"</p>
+                        <span class="story-date">8 марта 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2>Наши посадки с высоты</h2>
+            <div class="video-grid">
+                <div class="video-item">
+                    <h3>Обзор с квадрокоптера</h3>
+                    <div class="video-placeholder">
+                        <!-- Здесь будет видео с квадрокоптера -->
+                        <img src="images/drone-video.jpg" alt="Видео с квадрокоптера">
+                    </div>
+                </div>
+                <div class="video-item">
+                    <h3>Сюжет на ТВ</h3>
+                    <div class="video-placeholder">
+                        <!-- Здесь будет ТВ сюжет -->
+                        <img src="images/tv-story.jpg" alt="ТВ сюжет">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics">
+        <div class="container">
+            <h2>Леса России: цифры и факты</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">1.5 млн</div>
+                    <div class="stat-label">гектаров леса вырубается ежегодно</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">900 тыс.</div>
+                    <div class="stat-label">гектаров сгорает в пожарах каждый год</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">400 тыс.</div>
+                    <div class="stat-label">гектаров восстанавливается ежегодно</div>
+                </div>
+            </div>
+            <div class="stat-conclusion">
+                <p>Недостаточно «лайкать посты про экологию». Нужно выходить и сажать.</p>
+            </div>
+        </div>
+    </section>
+
+<!-- Emotional Blocks -->
+<section class="emotional-blocks">
+    <!-- Блок 1: Посвящение в мужчины -->
+    <div id="men-ritual" class="emotional-block block-men">
+        <div class="emotional-content">
+            <h2>Посади дерево. Стань мужчиной.</h2>
+            <p>Мужчина — это не про «бороду отрастил». Это про ответственность.</p>
+            <p>Один мальчик сажает одно дерево — и в этот момент у него появляется что-то своё: живое, растущее, зависимое от него.</p>
+            <p>Раз в год мы проводим ритуал посвящения в мужчины. Отец и сын выходят на землю, берут в руки лопаты и сажают дерево. Не в теории, не в «когда-нибудь», а здесь и сейчас.</p>
+            <button class="btn-primary">Записаться на посвящение</button>
+            <p class="subtitle">5 000 ₽ — вклад в лес и в характер ребёнка</p>
+        </div>
+        <div class="emotional-image">
+            <img src="images/men-ritual.jpg" alt="Посвящение в мужчины">
+        </div>
+    </div>
+
+    <!-- Блок 2: Свадебное дерево -->
+    <div id="wedding-tree" class="emotional-block block-wedding">
+        <div class="emotional-image">
+            <img src="images/wedding-tree.jpg" alt="Свадебное дерево">
+        </div>
+        <div class="emotional-content">
+            <h2>Свадебное дерево: вместо очередного букета — корни в земле</h2>
+            <p>Свадьба заканчивается, фото блекнут, торт съели и забыли. Но если в день росписи вы сажаете своё дерево — память становится живой.</p>
+            <p>Каждая семья после ЗАГСа может поехать не в ТЦ, а на свою первую совместную посадку. Дерево растёт вместе с вами: переживает ветра, морозы, засуху. Как и семья: главное — не бросать, ухаживать и возвращаться.</p>
+            <button class="btn-primary">Посадить семейное дерево</button>
+            <p class="subtitle">5 000 ₽ — ваша традиция, ваш лес, ваш след</p>
+        </div>
+    </div>
+
+    <!-- Блок 3: Роща славы -->
+    <div id="grove" class="emotional-block block-grove">
+        <div class="emotional-content">
+            <h2>Роща славы. Дерево, которое держит память</h2>
+            <p>Есть вещи, которые словами не лечатся. Когда отец на фронте. Когда его уже нет. Когда ребёнку нужно во что-то упереться, кроме пустоты.</p>
+            <p>Мы создаём Рощу славы — живой мемориал, где дети с мамами сажают деревья в честь своих защитников. У каждого дерева — имя. У каждой семьи — место, куда можно приходить, обнимать ствол и говорить то, что не сказано.</p>
+            <p>Дерево растёт. Так же, как растёт ребёнок. И каждый раз, когда он смотрит на крону, он знает: «Папа был. Папа есть в этой земле. И я продолжаю».</p>
+            <button class="btn-primary">Посадить дерево в Роще славы</button>
+        </div>
+        <div class="emotional-image">
+            <img src="images/grove-glory.jpg" alt="Роща славы">
+        </div>
+    </div>
+</section>
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>Как это работает</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Выбираете город и формат участия</h4>
+                    <p>Определяете где и как хотите участвовать</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Оплачиваете саженцы / гектар</h4>
+                    <p>Онлайн оплата или по счёту для компаний</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Получаете приглашение и координаты</h4>
+                    <p>Дата, время, место посадки и инструкции</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Приезжаете и сажаете</h4>
+                    <p>Весь инвентарь и инструктаж предоставляем</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h4>Получаете фото/видео/отчёт/сертификат</h4>
+                    <p>Документация о вашем вкладе в лес</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust">
+        <div class="container">
+            <h2>Доверие и гарантии</h2>
+            <div class="trust-content">
+                <div class="partners">
+                    <h3>Наши партнёры</h3>
+                    <div class="partners-grid">
+                        <div class="partner-logo">Лого 1</div>
+                        <div class="partner-logo">Лого 2</div>
+                        <div class="partner-logo">Лого 3</div>
+                        <div class="partner-logo">Лого 4</div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Остались вопросы?</h3>
+                    <form id="feedbackForm" class="feedback-form">
+                        <input type="text" placeholder="Ваше имя" required>
+                        <input type="email" placeholder="Email" required>
+                        <input type="tel" placeholder="Телефон" required>
+                        <textarea placeholder="Ваш вопрос" rows="4"></textarea>
+                        <button type="button" class="btn-primary">Отправить вопрос</button>
+                    </form>
+                </div>
+                
+                <div class="documents">
+                    <h3>Документы</h3>
+                    <div class="documents-list">
+                        <a href="#" class="doc-link">Реквизиты организации</a>
+                        <a href="#" class="doc-link">Лицензии и сертификаты</a>
+                        <a href="#" class="doc-link">Отчётность</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contacts" class="contacts">
+        <div class="container">
+            <h2>Контакты</h2>
+            <div class="contact-info">
+                <p>📞 +7 (999) 123-45-67</p>
+                <p>✉️ hello@derevya.ru</p>
+                <p>📍 Москва, ул. Лесная, д. 1</p>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>ДеревьЯ</h4>
+                    <p>Посади лес, в который можно вернуться</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <div class="social-links">
+                        <a href="#">VK</a>
+                        <a href="#">Telegram</a>
+                        <a href="#">YouTube</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Документы</h4>
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Пользовательское соглашение</a>
+                    <a href="#">Реквизиты</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ДеревьЯ. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Company Modal -->
+    <div id="companyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>Заявка для компании</h3>
+            <form id="companyForm">
+                <input type="text" placeholder="Название компании" required>
+                <input type="text" placeholder="Контактное лицо" required>
+                <input type="tel" placeholder="Телефон" required>
+                <input type="email" placeholder="Email" required>
+                <select id="hectares" required>
+                    <option value="">Выберите тариф</option>
+                    <option value="1">1 гектар</option>
+                    <option value="10">10 гектаров</option>
+                    <option value="100">100 гектаров</option>
+                </select>
+                <button type="submit" class="btn-primary">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+
+
+
+<!-- Модальное окно для компаний -->
+<div id="companyModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Заявка для компании</h3>
+        <form id="companyForm" class="modal-form">
+            <input type="text" placeholder="Название компании" required>
+            <input type="text" placeholder="Контактное лицо" required>
+            <input type="tel" placeholder="Телефон" required>
+            <input type="email" placeholder="Email" required>
+            <select id="hectares" required>
+                <option value="">Выберите тариф</option>
+                <option value="1">1 гектар</option>
+                <option value="10">10 гектаров</option>
+                <option value="100">100 гектаров</option>
+            </select>
+            <button type="button" class="btn-primary">Отправить заявку</button>
+        </form>
+    </div>
+</div>
+
+
+
+<!-- Модальное окно для ритуалов -->
+<div id="ritualModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3 id="ritualTitle">Заявка на участие</h3>
+        <form id="ritualForm" class="modal-form">
+            <input type="text" placeholder="Ваше имя" required>
+            <input type="tel" placeholder="Телефон" required>
+            <input type="email" placeholder="Email" required>
+            <select id="cityModal" required>
+                <option value="">Выберите город</option>
+                <option value="moscow">Москва</option>
+                <option value="spb">Санкт-Петербург</option>
+                <option value="ekb">Екатеринбург</option>
+                <option value="nsk">Новосибирск</option>
+                <option value="kazan">Казань</option>
+                <option value="vladivostok">Владивосток</option>
+            </select>
+            <textarea placeholder="Комментарий (необязательно)" rows="3"></textarea>
+            <button type="button" class="btn-primary">Отправить заявку</button>
+        </form>
+    </div>
+</div>
+
+<script src="scripts/script.js"></script>
+</body>
+</html>
